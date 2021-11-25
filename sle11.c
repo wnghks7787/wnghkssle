@@ -41,4 +41,43 @@ int main()
         if(arr[i] != -1)
             printf("%d\n", i + min);
     }
+
+    free(arr);
+    return 0;
 }
+
+
+// 참고 : 원 코드(실패 이유 : 시간초과)
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int min, max;
+    int i, j;
+
+    scanf("%d %d", &min, &max);
+
+    int* arr = (int*)malloc((max - min) * sizeof(int));
+
+    for(i = min ; i <= max ; i++)
+    {
+        for(j = 2 ; j < i ; j++)
+        {
+            if(i % j == 0)
+            {
+                arr[i - min] = 1;
+                break;
+            }
+        }
+        if(arr[i - min] != 1)
+            printf("%d\n", i);
+    }
+
+    free(arr);
+
+    return 0;
+}
+
+*/
